@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ShowItems from "../ShowItems";
+import ShowItems from "../ShowItems/ShowItems.jsx";
 import "./SelectItems.css";
 
 function SelectItems() {

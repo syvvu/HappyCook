@@ -1,16 +1,18 @@
+import "./ShowItems.css";
+
 function ShowItems(props) {
   const items = ["item 1", "item 2", "item 3", "item 4"];
 
   return (
-    <div className={`item-container ${props.name}`}>
+    <div className="items">
       {items.map((item) => (
         <span
           key={item}
-          className={"item-box"}
+          className={"item"}
           onClick={() => props.onSelectItems(item)}
           style={
             props.selectedItems.includes(item)
-              ? { backgroundColor: "#9C6644" }
+              ? { backgroundColor: "#B08968" }
               : {}
           }
         >

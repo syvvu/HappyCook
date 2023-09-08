@@ -22,8 +22,8 @@ h1 {
   grid-template-columns: repeat(
     2,
     1fr
-  ); /* This creates 2 columns of equal width */
-  gap: 20px; /* This is the space between the grid items */
+  );
+  gap: 20px;
   height: 80%;
   width: 100%;
 }
