@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import ShowItems from "../ShowItems/ShowItems.jsx";
-import "./SelectItems.css";
+import ShowItems from "../showItems/ShowItems";
+import "./selectItems.css";
 
 function SelectItems() {
   const [selectedItems, setSelectedItems] = useState([]);

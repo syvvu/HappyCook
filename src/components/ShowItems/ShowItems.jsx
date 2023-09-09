@@ -1,4 +1,4 @@
-import "./ShowItems.css";
+import "./showItems.css";
 
 function ShowItems(props) {
   const items = ["item 1", "item 2", "item 3", "item 4"];
