@@ -5,7 +5,7 @@ import SelectTab from "./selectTab/SelectTab";
 function App() {
   return (
     <div>
-      <SelectTab />
+      <SelectItems />
     </div>
   );
 }

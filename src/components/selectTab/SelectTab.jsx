@@ -16,14 +16,14 @@ function SelectTab() {
   const displayedContent = previewTab || selectedTab;
 
   return (
-    <div className="tabs-container">
+    <div className="tabs-container" style={{ backgroundColor: "#b08968" }}>
       <div className="tabs">
         <button
-          className={
+          className={`button-tabs ${
             previewTab === "exact" || (!previewTab && selectedTab === "exact")
               ? "active"
               : ""
-          }
+          }`}
           onClick={() => setSelectedTab("exact")}
           onMouseEnter={() => setPreviewTab("exact")}
           onMouseLeave={() => setPreviewTab(null)}
@@ -31,11 +31,11 @@ function SelectTab() {
           Exact Match
         </button>
         <button
-          className={
+          className={`button-tabs ${
             previewTab === "close" || (!previewTab && selectedTab === "close")
               ? "active"
               : ""
-          }
+          }`}
           onClick={() => setSelectedTab("close")}
           onMouseEnter={() => setPreviewTab("close")}
           onMouseLeave={() => setPreviewTab(null)}

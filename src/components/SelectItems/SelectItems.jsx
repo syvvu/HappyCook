@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ShowItems from "../showItems/ShowItems";
+import SubmitButton from "../submitButton/SubmitButton";
 import "./selectItems.css";
 
 function SelectItems() {
@@ -16,7 +17,7 @@ function SelectItems() {
   };
 
   return (
-    <div className="main">
+    <div className="main" style={{ backgroundColor: "#7f5539" }}>
       <h1>Hello, Chef!</h1>
       <div className="cards">
         <div className="card">
@@ -52,6 +53,7 @@ function SelectItems() {
           />
         </div>
       </div>
+      <SubmitButton />
     </div>
   );
 }
