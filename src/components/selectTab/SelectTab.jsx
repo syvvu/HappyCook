@@ -1,17 +1,11 @@
 import React, { useState } from "react";
+import ExactMatch from "../recipeTabs/ExactMatch";
+import CloseMatch from "../recipeTabs/CloseMatch";
 import "./selectTab.css";
 
 function SelectTab() {
   const [selectedTab, setSelectedTab] = useState("exact");
   const [previewTab, setPreviewTab] = useState(null);
-
-  function ExactMacth() {
-    return <p>This is exact match.</p>;
-  }
-
-  function CloseMacth() {
-    return <p>This is close match.</p>;
-  }
 
   const displayedContent = previewTab || selectedTab;
 
@@ -44,7 +38,7 @@ function SelectTab() {
         </button>
       </div>
       <div className="content">
-        {displayedContent === "exact" ? ExactMacth() : CloseMacth()}
+        {displayedContent === "exact" ? <ExactMatch /> : <CloseMatch />}
       </div>
     </div>
   );

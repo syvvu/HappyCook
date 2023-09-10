@@ -1,0 +1,41 @@
+.card-link {
+  text-decoration: none;
+  color: black;
+}
+
+.card-link:hover .recipe-card {
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); 
+}
+
+.recipe-card {
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+}
+
+.recipe-name {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.recipe-emojis .emoji {
+  border-radius: 50%; 
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  margin: 5px;
+  font-size: 24px;
+}
+
+.emoji.available {
+  background-color: #4caf50; 
+}
+
+.emoji.missing {
+  background-color: #ff5733;
+}
