@@ -1,7 +1,21 @@
 import "./showItems.css";
 
 function ShowItems(props) {
-  const items = ["item 1", "item 2", "item 3", "item 4"];
+  let items = [];
+  switch (props.name) {
+    case "protein":
+      items = ["Chicken", "Beef", "Fish", "Tofu"];
+      break;
+    case "vegetables":
+      items = ["Broccoli", "Onion", "Garlic", "Mushroom"];
+      break;
+    case "grains":
+      items = ["Rice", "Wheat", "Oats", "Barley"];
+      break;
+    case "dairy":
+      items = ["Milk", "Cheese", "Cream", "Butter"];
+      break;
+  }
 
   return (
     <div className="items">
