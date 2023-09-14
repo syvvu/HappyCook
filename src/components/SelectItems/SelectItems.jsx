@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import ShowItems from "../showItems/ShowItems";
 import SubmitButton from "../submitButton/SubmitButton";
 import "./selectItems.css";
@@ -53,7 +54,9 @@ function SelectItems() {
           />
         </div>
       </div>
-      <SubmitButton />
+      <Link to="/recipes">
+        <SubmitButton />
+      </Link>
     </div>
   );
 }
