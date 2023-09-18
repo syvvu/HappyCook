@@ -3,6 +3,19 @@ import emojis from "../emojis";
 import "./recipeCard.css";
 
 function RecipeCard({ name, ingredients, link, selectedItems }) {
+  // Filter out the available ingredients
+  const availableIngredients = ingredients.filter((ingredient) =>
+    selectedItems.includes(ingredient)
+  );
+
+  // Filter out the missing ingredients
+  const missingIngredients = ingredients.filter(
+    (ingredient) => !selectedItems.includes(ingredient)
+  );
+
+  // Concatenate the two arrays
+  const sortedIngredients = availableIngredients.concat(missingIngredients);
+
   return (
     <a
       href={link}
@@ -14,7 +27,7 @@ function RecipeCard({ name, ingredients, link, selectedItems }) {
         <div className="recipe-name">{name}</div>
         <hr />
         <div className="recipe-emojis">
-          {ingredients.map((ingredient) => (
+          {sortedIngredients.map((ingredient) => (
             <span
               key={ingredient}
               className={`emoji ${
