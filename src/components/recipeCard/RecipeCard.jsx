@@ -1,7 +1,8 @@
 import React from "react";
+import emojis from "../emojis";
 import "./recipeCard.css";
 
-function RecipeCard({ name, emojis, link }) {
+function RecipeCard({ name, ingredients, link, selectedItems }) {
   return (
     <a
       href={link}
@@ -13,9 +14,14 @@ function RecipeCard({ name, emojis, link }) {
         <div className="recipe-name">{name}</div>
         <hr />
         <div className="recipe-emojis">
-          {emojis.map((emojiObj, index) => (
-            <span key={index} className={`emoji ${emojiObj.status}`}>
-              {emojiObj.char}
+          {ingredients.map((ingredient) => (
+            <span
+              key={ingredient}
+              className={`emoji ${
+                selectedItems.includes(ingredient) ? "available" : "missing"
+              }`}
+            >
+              {emojis[ingredient]}
             </span>
           ))}
         </div>
