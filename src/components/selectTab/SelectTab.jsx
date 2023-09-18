@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
-import ExactMatch from "../recipeTabs/ExactMatch";
-import CloseMatch from "../recipeTabs/CloseMatch";
+import RecipesContainer from "../recipesContainer/RecipesContainer";
 import "./selectTab.css";
 
 function SelectTab() {
@@ -43,17 +42,10 @@ function SelectTab() {
         </button>
       </div>
       <div className="content">
-        {displayedContent === "exact" ? (
-          <ExactMatch
-            recipes={exactMatches}
-            selectedItems={location.state?.selectedItems || []}
-          />
-        ) : (
-          <CloseMatch
-            recipes={closeMatches}
-            selectedItems={location.state?.selectedItems || []}
-          />
-        )}
+        <RecipesContainer
+          recipes={displayedContent === "exact" ? exactMatches : closeMatches}
+          selectedItems={location.state?.selectedItems || []}
+        />
       </div>
     </div>
   );

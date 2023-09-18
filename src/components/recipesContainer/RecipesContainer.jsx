@@ -2,7 +2,7 @@ import React from "react";
 import RecipeCard from "../recipeCard/RecipeCard";
 import "./recipesContainer.css";
 
-function CloseMatch({ recipes, selectedItems }) {
+function RecipesContainer({ recipes, selectedItems }) {
   return (
     <div className="recipes-container">
       {recipes.map((recipe) => (
@@ -18,4 +18,4 @@ function CloseMatch({ recipes, selectedItems }) {
   );
 }
 
-export default CloseMatch;
+export default RecipesContainer;
