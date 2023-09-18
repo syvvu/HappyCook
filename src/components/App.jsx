@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import SelectItems from "./selectItems/SelectItems";
+import SelectItems from "./SelectItems/SelectItems";
 import SelectTab from "./selectTab/SelectTab";
 
 function App() {

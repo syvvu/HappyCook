@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ShowItems from "../showItems/ShowItems";
 import SubmitButton from "../submitButton/SubmitButton";
 import "./selectItems.css";
 
 function SelectItems() {
   const [selectedItems, setSelectedItems] = useState([]);
+  const navigate = useNavigate();
 
   const handleItemSelect = (item) => {
     setSelectedItems((prevItems) => {
@@ -15,6 +16,41 @@ function SelectItems() {
         return [...prevItems, item];
       }
     });
+  };
+
+  const fetchRecipes = async (selectedItems) => {
+    const response = await fetch("http://localhost:5001/find-recipes", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ selectedIngredients: selectedItems }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`API call failed with status: ${response.status}`);
+    }
+
+    return response.json();
+  };
+
+  const navigateToRecipes = (data, selectedItems) => {
+    navigate("/recipes", {
+      state: {
+        exactMatches: data.exactMatches,
+        closeMatches: data.closeMatches,
+        selectedItems: selectedItems,
+      },
+    });
+  };
+
+  const handleSubmit = async () => {
+    try {
+      const data = await fetchRecipes(selectedItems);
+      navigateToRecipes(data, selectedItems);
+    } catch (error) {
+      console.error("Failed to fetch recipes:", error);
+    }
   };
 
   return (
@@ -54,7 +90,7 @@ function SelectItems() {
           />
         </div>
       </div>
-      <Link to="/recipes">
+      <Link to="/recipes" onClick={handleSubmit}>
         <SubmitButton />
       </Link>
     </div>
