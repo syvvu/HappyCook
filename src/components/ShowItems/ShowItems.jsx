@@ -1,21 +1,15 @@
+import { proteins, vegetables, grains, dairy } from "../emojis";
 import "./showItems.css";
 
+const categoriesMap = {
+  protein: Object.keys(proteins),
+  vegetables: Object.keys(vegetables),
+  grains: Object.keys(grains),
+  dairy: Object.keys(dairy),
+};
+
 function ShowItems(props) {
-  let items = [];
-  switch (props.name) {
-    case "protein":
-      items = ["Chicken", "Beef", "Fish", "Tofu"];
-      break;
-    case "vegetables":
-      items = ["Broccoli", "Onion", "Garlic", "Mushroom"];
-      break;
-    case "grains":
-      items = ["Rice", "Wheat", "Oats", "Barley"];
-      break;
-    case "dairy":
-      items = ["Milk", "Cheese", "Cream", "Butter"];
-      break;
-  }
+  const items = categoriesMap[props.name] || [];
 
   return (
     <div className="items">

@@ -70,4 +70,5 @@ const emojis = {
   ...dairy,
 };
 
+export { proteins, vegetables, grains, dairy };
 export default emojis;
