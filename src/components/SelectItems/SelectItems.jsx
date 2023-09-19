@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import ShowItems from "../showItems/ShowItems";
-import SubmitButton from "../submitButton/SubmitButton";
 import "./selectItems.css";
 
 const categories = [
@@ -75,9 +74,9 @@ function SelectItems() {
           </div>
         ))}
       </div>
-      <Link to="/recipes" onClick={handleSubmit}>
-        <SubmitButton />
-      </Link>
+      <button className="submit-button" onClick={handleSubmit}>
+        Dive into Deliciousness
+      </button>
     </div>
   );
 }
