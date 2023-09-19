@@ -1,4 +1,4 @@
-import { proteins, vegetables, grains, dairy } from "../emojis";
+import emojis, { proteins, vegetables, grains, dairy } from "../emojis";
 import "./showItems.css";
 
 const categoriesMap = {
@@ -24,7 +24,7 @@ function ShowItems(props) {
               : {}
           }
         >
-          {item}
+          {emojis[item]} {item}
         </span>
       ))}
     </div>
