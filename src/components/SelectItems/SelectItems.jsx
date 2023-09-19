@@ -4,6 +4,13 @@ import ShowItems from "../showItems/ShowItems";
 import SubmitButton from "../submitButton/SubmitButton";
 import "./selectItems.css";
 
+const categories = [
+  { name: "protein", label: "Protein" },
+  { name: "vegetables", label: "Vegetables" },
+  { name: "grains", label: "Grains" },
+  { name: "dairy", label: "Dairy" },
+];
+
 function SelectItems() {
   const [selectedItems, setSelectedItems] = useState([]);
   const navigate = useNavigate();
@@ -57,38 +64,16 @@ function SelectItems() {
     <div className="main" style={{ backgroundColor: "#7f5539" }}>
       <h1>Hello, Chef!</h1>
       <div className="cards">
-        <div className="card">
-          <h2>Protein</h2>
-          <ShowItems
-            name="protein"
-            selectedItems={selectedItems}
-            onSelectItems={handleItemSelect}
-          />
-        </div>
-        <div className="card">
-          <h2>Vegetables</h2>
-          <ShowItems
-            name="vegetables"
-            selectedItems={selectedItems}
-            onSelectItems={handleItemSelect}
-          />
-        </div>
-        <div className="card">
-          <h2>Grains</h2>
-          <ShowItems
-            name="grains"
-            selectedItems={selectedItems}
-            onSelectItems={handleItemSelect}
-          />
-        </div>
-        <div className="card">
-          <h2>Dairy</h2>
-          <ShowItems
-            name="dairy"
-            selectedItems={selectedItems}
-            onSelectItems={handleItemSelect}
-          />
-        </div>
+        {categories.map((category) => (
+          <div className="card" key={category.name}>
+            <h2>{category.label}</h2>
+            <ShowItems
+              name={category.name}
+              selectedItems={selectedItems}
+              onSelectItems={handleItemSelect}
+            />
+          </div>
+        ))}
       </div>
       <Link to="/recipes" onClick={handleSubmit}>
         <SubmitButton />
