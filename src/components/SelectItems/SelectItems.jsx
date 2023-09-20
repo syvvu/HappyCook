@@ -24,7 +24,7 @@ function SelectItems() {
     });
   };
 
-  const fetchRecipes = async (selectedItems) => {
+  const getRecipes = async (selectedItems) => {
     const response = await fetch("http://localhost:5001/find-recipes", {
       method: "POST",
       headers: {
@@ -52,10 +52,10 @@ function SelectItems() {
 
   const handleSubmit = async () => {
     try {
-      const data = await fetchRecipes(selectedItems);
+      const data = await getRecipes(selectedItems);
       navigateToRecipes(data, selectedItems);
     } catch (error) {
-      console.error("Failed to fetch recipes:", error);
+      console.error("Failed to get recipes:", error);
     }
   };
 
