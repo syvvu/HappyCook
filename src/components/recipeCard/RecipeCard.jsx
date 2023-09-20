@@ -1,6 +1,7 @@
 import React from "react";
-import emojis from "../emojis";
+/**import emojis from "../emojis";**/
 import "./recipeCard.css";
+const { emojis } = require('../emojis');
 
 function RecipeCard({ name, ingredients, link, selectedItems }) {
   // Filter out the available ingredients

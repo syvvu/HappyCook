@@ -1,5 +1,6 @@
-import emojis, { proteins, vegetables, grains, dairy } from "../emojis";
+/** import emojis, { proteins, vegetables, grains, dairy } from "../emojis"; **/
 import "./showItems.css";
+const { proteins, vegetables, grains, dairy, emojis } = require("../emojis");
 
 const categoriesMap = {
   protein: Object.keys(proteins),
