@@ -29,6 +29,7 @@ function SelectItems() {
   const handleVideoClick = () => {
     const video = videoRef.current;
     if (!isPlaying) {
+      video.playbackRate = 1.5;
       video.play();
       setIsPlaying(true);
     }
