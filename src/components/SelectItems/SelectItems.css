@@ -39,6 +39,8 @@
   width: 80px;
   height: auto;
   border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
 .card {
@@ -71,6 +73,14 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+.broom-video:hover {
+  filter: saturate(200%);
+}
+
+.broom-video:active {
+  transform: scale(0.95);
+}
+
 .card:hover {
   background-color: #e6ccb2;
   transform: translateY(-10px);
@@ -87,3 +97,4 @@
   transform: scale(1);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
+
