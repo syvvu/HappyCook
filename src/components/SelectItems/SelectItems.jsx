@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import ShowItems from "../showItems/ShowItems";
 import "./selectItems.css";
@@ -12,7 +12,9 @@ const categories = [
 
 function SelectItems() {
   const [selectedItems, setSelectedItems] = useState([]);
+  const [isPlaying, setIsPlaying] = useState(false);
   const navigate = useNavigate();
+  const videoRef = useRef(null);
 
   const handleItemSelect = (item) => {
     setSelectedItems((prevItems) => {
@@ -22,6 +24,18 @@ function SelectItems() {
         return [...prevItems, item];
       }
     });
+  };
+
+  const handleVideoClick = () => {
+    const video = videoRef.current;
+    if (!isPlaying) {
+      video.play();
+      setIsPlaying(true);
+    }
+  };
+
+  const handleVideoEnd = () => {
+    setIsPlaying(false);
   };
 
   const getRecipes = async (selectedItems) => {
@@ -61,7 +75,21 @@ function SelectItems() {
 
   return (
     <div className="main" style={{ backgroundColor: "#7f5539" }}>
+    <div className="header-container">
       <h1>Hello, Chef!</h1>
+      <video
+        ref={videoRef}
+        onClick={handleVideoClick}
+        onEnded={handleVideoEnd}
+        className="broom-video"
+        muted
+        playsInline
+      >
+        <source src="/assets/broom.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      </div>
+
       <div className="cards">
         {categories.map((category) => (
           <div className="card" key={category.name}>
