@@ -32,7 +32,7 @@ const grains = {
   Rice: "🍚",
   Spaghetti: "🍝",
   Noodle: "🍜",
-  Cereal: "🥣",
+  Pasta: "🥣",
   Starch: "🥞",
 };
 

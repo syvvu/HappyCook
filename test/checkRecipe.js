@@ -19,3 +19,25 @@ describe("Check Ingredients against Emojis", () => {
     });
   });
 });
+
+describe("Check Recipe Links", () => {
+
+  it('all recipe links should be unique', async () => {
+    const recipes = await fetchRecipes();
+
+    const linksSet = new Set();
+    let row = 2;
+
+    recipes.forEach(recipe => {
+      if (linksSet.has(recipe.link)) {
+        console.error(`Duplicate link found on row ${row}: "${recipe.link}".`);
+        expect(false).toBe(true);
+      } else {
+        linksSet.add(recipe.link);
+      }
+      row++;
+    });
+
+    expect(linksSet.size).toBe(recipes.length);
+  });
+});
