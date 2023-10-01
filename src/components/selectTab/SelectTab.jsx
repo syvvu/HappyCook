@@ -14,7 +14,7 @@ function SelectTab() {
   const displayedContent = previewTab || selectedTab;
 
   return (
-    <div className="tabs-container" style={{ backgroundColor: "#b08968" }}>
+    <div className="tabs-container" style={{ backgroundColor: "#ede0d4" }}> 
       <div className="tabs">
         <button
           className={`button-tabs ${
