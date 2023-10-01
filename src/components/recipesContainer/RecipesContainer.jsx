@@ -1,8 +1,12 @@
 import React from "react";
 import RecipeCard from "../recipeCard/RecipeCard";
+import Button from "../Button/Button";
 import "./recipesContainer.css";
+import { useNavigate } from "react-router-dom";
 
 function RecipesContainer({ recipes, selectedItems }) {
+  const navigate = useNavigate();
+
   const noMatchMessages = [
     "Oops! We couldn't find what you're looking for.",
     "Our chefs are scratching their heads!",
@@ -17,10 +21,19 @@ function RecipesContainer({ recipes, selectedItems }) {
   const randomMessage =
     noMatchMessages[Math.floor(Math.random() * noMatchMessages.length)];
 
+  const handleRetrySearch = () => {
+    navigate("/", {
+      state: {
+        selectedItems: selectedItems,
+      },
+    });
+  };
+
   if (recipes.length === 0) {
     return (
       <div className="no-match-container">
         <p>{randomMessage}</p>
+        <Button name="Try Another Search" onClick={handleRetrySearch} />
       </div>
     );
   }

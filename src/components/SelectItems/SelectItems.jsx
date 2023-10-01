@@ -1,7 +1,8 @@
 import React, { useState, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import ShowItems from "../showItems/ShowItems";
 import "./selectItems.css";
+import Button from "../Button/Button";
 
 const categories = [
   { name: "protein", label: "Protein" },
@@ -11,7 +12,9 @@ const categories = [
 ];
 
 function SelectItems() {
-  const [selectedItems, setSelectedItems] = useState([]);
+  const location = useLocation();
+  const initialSelectedItems = location.state?.selectedItems || [];
+  const [selectedItems, setSelectedItems] = useState(initialSelectedItems);
   const [isPlaying, setIsPlaying] = useState(false);
   const navigate = useNavigate();
   const videoRef = useRef(null);
@@ -103,9 +106,7 @@ function SelectItems() {
           </div>
         ))}
       </div>
-      <button className="submit-button" onClick={handleSubmit}>
-        Dive into Deliciousness
-      </button>
+      <Button name="Dive into Deliciousness" onClick={handleSubmit} />
     </div>
   );
 }
