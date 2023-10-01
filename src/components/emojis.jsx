@@ -17,6 +17,7 @@ const vegetables = {
   Cucumber: "🥒",
   Garlic: "🧄",
   Ginger: "🫚",
+  "Green Onion": "🌿",
   Onion: "🧅",
   "Bell Pepper": "🫑",
   "Leafy Green": "🥬",
@@ -31,8 +32,8 @@ const grains = {
   Rice: "🍚",
   Spaghetti: "🍝",
   Noodle: "🍜",
-  Pancake: "🥞",
   Cereal: "🥣",
+  Starch: "🥞",
 };
 
 const dairy = {
@@ -40,28 +41,8 @@ const dairy = {
   Butter: "🧈",
   Cheese: "🧀",
   Cream: "🍦",
+  Flour: "🥖",
 };
-
-/**
-const fruits = {
-  Apple: "🍎",
-  Pear: "🍐",
-  Orange: "🍊",
-  Banana: "🍌",
-  Watermelon: "🍉",
-  Grapes: "🍇",
-  Blueberries: "🫐",
-  Strawberry: "🍓",
-  Lemon: "🍋",
-  Cherry: "🍒",
-  Peach: "🍑",
-  Mango: "🥭",
-  Pineapple: "🍍",
-  Coconut: "🥥",
-  Kiwi: "🥝",
-  Avocado: "🥑",
-};
-*/
 
 const emojis = {
   ...proteins,
