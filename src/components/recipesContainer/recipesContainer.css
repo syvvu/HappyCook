@@ -6,3 +6,19 @@
   width: fit-content;
   margin: 0 auto;
 }
+
+.no-match-container {
+  width: 100%; 
+  flex-grow: 1; 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center;
+  gap: 20px;
+}
+
+.no-match-container p {
+  text-align: center;
+  font-size: 1.5em;
+  color: #f9f4ef;
+}
