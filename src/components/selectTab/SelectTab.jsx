@@ -1,17 +1,27 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import RecipesContainer from "../recipesContainer/RecipesContainer";
 import "./selectTab.css";
 
 function SelectTab() {
+  const navigate = useNavigate();
   const location = useLocation();
   const exactMatches = location.state?.exactMatches || [];
   const closeMatches = location.state?.closeMatches || [];
+  const selectedItems = location.state?.selectedItems || [];
 
   const [selectedTab, setSelectedTab] = useState("exact");
   const [previewTab, setPreviewTab] = useState(null);
 
   const displayedContent = previewTab || selectedTab;
+
+  const navigateToKitchen = () => {
+    navigate("/", {
+      state: {
+        selectedItems: selectedItems,
+      },
+    });
+  };
 
   return (
     <div className="tabs-container" style={{ backgroundColor: "#ede0d4" }}>
@@ -40,12 +50,18 @@ function SelectTab() {
         >
           Close Match
         </button>
-        <span class="material-symbols-outlined">kitchen</span>
+        <span
+          className="material-symbols-outlined"
+          onClick={navigateToKitchen}
+          style={{ cursor: "pointer" }}
+        >
+          kitchen
+        </span>
       </div>
       <div className="content">
         <RecipesContainer
           recipes={displayedContent === "exact" ? exactMatches : closeMatches}
-          selectedItems={location.state?.selectedItems || []}
+          selectedItems={selectedItems}
         />
       </div>
     </div>
