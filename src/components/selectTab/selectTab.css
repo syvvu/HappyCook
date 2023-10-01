@@ -5,6 +5,7 @@
 }
 
 .tabs {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -38,3 +39,12 @@
   display: flex;
   justify-content: center;
 }
+
+.material-symbols-outlined {
+  font-size: 50px;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
+
