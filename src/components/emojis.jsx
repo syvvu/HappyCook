@@ -17,14 +17,16 @@ const vegetables = {
   Cucumber: "🥒",
   Garlic: "🧄",
   Ginger: "🫚",
-  "Green Onion": "🌿",
   Onion: "🧅",
-  "Bell Pepper": "🫑",
-  "Leafy Green": "🥬",
   Potato: "🥔",
-  "Sweet Potato": "🍠",
   Tomato: "🍅",
   Mushroom: "🍄",
+  Peas: "🫛",
+  "Bell Pepper": "🫑",
+  "Green Onion": "🌿",
+  "Leafy Green": "🥬",
+  "Sweet Potato": "🍠",
+  "Mung Bean Sprouts": "🌱",
 };
 
 const grains = {
@@ -34,6 +36,7 @@ const grains = {
   Noodle: "🍜",
   Pasta: "🥣",
   Starch: "🥞",
+  Flour: "🥖",
 };
 
 const dairy = {
@@ -41,7 +44,6 @@ const dairy = {
   Butter: "🧈",
   Cheese: "🧀",
   Cream: "🍦",
-  Flour: "🥖",
 };
 
 const emojis = {
