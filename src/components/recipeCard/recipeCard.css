@@ -9,11 +9,13 @@
 }
 
 .recipe-card {
-  width: 200px;
+  width: 300px;
+  height: 140px;
   padding: 10px;
   text-align: center;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   background-color: #f9f4ef;
+  border-radius: 6px;
 }
 
 .recipe-name {
@@ -24,6 +26,7 @@
 .recipe-emojis {
   display: flex; 
   align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
 }
 
