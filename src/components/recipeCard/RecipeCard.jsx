@@ -1,21 +1,27 @@
 import React from "react";
-/**import emojis from "../emojis";**/
 import "./recipeCard.css";
-const { emojis } = require('../emojis');
+
+const { proteins, vegetables, grains, dairy } = require('../emojis');
 
 function RecipeCard({ name, ingredients, link, selectedItems }) {
-  // Filter out the available ingredients
-  const availableIngredients = ingredients.filter((ingredient) =>
-    selectedItems.includes(ingredient)
-  );
+  const categoryOrder = [proteins, vegetables, grains, dairy];
 
-  // Filter out the missing ingredients
-  const missingIngredients = ingredients.filter(
-    (ingredient) => !selectedItems.includes(ingredient)
-  );
-
-  // Concatenate the two arrays
-  const sortedIngredients = availableIngredients.concat(missingIngredients);
+  // Render ingredients based on their availability and category order
+  const renderIngredients = (isAvailable) => {
+    return categoryOrder.flatMap(currentCategory => {
+      return Object.keys(currentCategory)
+        .filter(ingredient => ingredients.includes(ingredient))
+        .filter(ingredient => isAvailable ? selectedItems.includes(ingredient) : !selectedItems.includes(ingredient))
+        .map(ingredient => (
+          <span
+            key={ingredient}
+            className={`emoji ${isAvailable ? "available" : "missing"}`}
+          >
+            {currentCategory[ingredient]}
+          </span>
+        ));
+    });
+  }
 
   return (
     <a
@@ -28,16 +34,8 @@ function RecipeCard({ name, ingredients, link, selectedItems }) {
         <div className="recipe-name">{name}</div>
         <hr />
         <div className="recipe-emojis">
-          {sortedIngredients.map((ingredient) => (
-            <span
-              key={ingredient}
-              className={`emoji ${
-                selectedItems.includes(ingredient) ? "available" : "missing"
-              }`}
-            >
-              {emojis[ingredient]}
-            </span>
-          ))}
+          {renderIngredients(true)}
+          {renderIngredients(false)}
         </div>
       </div>
     </a>
