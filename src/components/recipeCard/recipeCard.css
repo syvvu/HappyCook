@@ -21,14 +21,20 @@
   margin-bottom: 10px;
 }
 
+.recipe-emojis {
+  display: flex; 
+  align-items: center;
+  flex-wrap: wrap;
+}
+
 .recipe-emojis .emoji {
   border-radius: 50%; 
   display: inline-block;
   width: 40px;
   height: 40px;
   line-height: 40px;
-  margin: 5px;
   font-size: 24px;
+  margin: 5px;
 }
 
 .emoji.available {
