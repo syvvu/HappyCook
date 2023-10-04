@@ -1,27 +1,39 @@
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
+const mongoose = require("mongoose");
 const findRecipes = require("./findRecipes");
 
 const app = express();
 const PORT = process.env.PORT || 5001;
+const connectionString = `mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@recipedbcluster.grv4wcj.mongodb.net/recipeDB?retryWrites=true&w=majority`;
 
-app.use(cors());
-app.use(express.json());
+mongoose.connect(connectionString, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+}).then(() => {
+    console.log("Connected to MongoDB");
 
-app.get("/", (req, res) => {
-  res.send("Server is running.");
-});
+    app.use(cors());
+    app.use(express.json());
 
-app.post("/find-recipes", async (req, res) => {
-  try {
-    const selectedIngredients = req.body.selectedIngredients;
-    const results = await findRecipes(selectedIngredients);
-    res.json(results);
-  } catch (error) {
-    res.status(500).json({ error: "Failed to fetch recipes." });
-  }
-});
+    app.get("/", (req, res) => {
+        res.send("Server is running.");
+    });
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+    app.post("/find-recipes", async (req, res) => {
+        try {
+            const selectedIngredients = req.body.selectedIngredients;
+            const results = await findRecipes(selectedIngredients);
+            res.json(results);
+        } catch (error) {
+            res.status(500).json({ error: "Failed to fetch recipes." });
+        }
+    });
+
+    app.listen(PORT, () => {
+        console.log(`Server is running on port ${PORT}`);
+    });
+}).catch(err => {
+    console.error("Failed to connect to MongoDB:", err);
 });
