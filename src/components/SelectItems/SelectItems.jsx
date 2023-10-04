@@ -1,8 +1,9 @@
 import React, { useState, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import ShowItems from "../showItems/ShowItems";
-import "./selectItems.css";
 import Button from "../Button/Button";
+import EmojiWalking from "../EmojiWalking/EmojiWalking";
+import "./selectItems.css";
 
 const categories = [
   { name: "protein", label: "Protein" },
@@ -14,8 +15,11 @@ const categories = [
 function SelectItems() {
   const location = useLocation();
   const initialSelectedItems = location.state?.selectedItems || [];
+
   const [selectedItems, setSelectedItems] = useState(initialSelectedItems);
+  const [isLoading, setIsLoading] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
+
   const navigate = useNavigate();
   const videoRef = useRef(null);
 
@@ -70,43 +74,54 @@ function SelectItems() {
   };
 
   const handleSubmit = async () => {
+    setIsLoading(true);
     try {
       const data = await getRecipes(selectedItems);
       navigateToRecipes(data, selectedItems);
     } catch (error) {
       console.error("Failed to get recipes:", error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
     <div className="main" style={{ backgroundColor: "#7f5539" }}>
-      <div className="header-container">
-        <h1>Hello, Chef!</h1>
-        <video
-          ref={videoRef}
-          onClick={handleVideoClick}
-          onEnded={handleVideoEnd}
-          className={`broom-video ${selectedItems.length > 0 ? "visible" : ""}`}
-          muted
-          playsInline
-        >
-          <source src="/assets/broom.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-      <div className="cards">
-        {categories.map((category) => (
-          <div className="card" key={category.name}>
-            <h2>{category.label}</h2>
-            <ShowItems
-              name={category.name}
-              selectedItems={selectedItems}
-              onSelectItems={handleItemSelect}
-            />
+      {isLoading ? (
+        <EmojiWalking />
+      ) : (
+        <>
+          <div className="header-container">
+            <h1>Hello, Chef!</h1>
+            <video
+              ref={videoRef}
+              onClick={handleVideoClick}
+              onEnded={handleVideoEnd}
+              className={`broom-video ${
+                selectedItems.length > 0 ? "visible" : ""
+              }`}
+              muted
+              playsInline
+            >
+              <source src="/assets/broom.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
           </div>
-        ))}
-      </div>
-      <Button name="Dive into Deliciousness" onClick={handleSubmit} />
+          <div className="cards">
+            {categories.map((category) => (
+              <div className="card" key={category.name}>
+                <h2>{category.label}</h2>
+                <ShowItems
+                  name={category.name}
+                  selectedItems={selectedItems}
+                  onSelectItems={handleItemSelect}
+                />
+              </div>
+            ))}
+          </div>
+          <Button name="Dive into Deliciousness" onClick={handleSubmit} />
+        </>
+      )}
     </div>
   );
 }
