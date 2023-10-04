@@ -1,5 +1,5 @@
 const express = require("express");
-const cors = require("cors"); // assuming CORS middleware is also installed
+const cors = require("cors");
 const findRecipes = require("./findRecipes");
 
 const app = express();
