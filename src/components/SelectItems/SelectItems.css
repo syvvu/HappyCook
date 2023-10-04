@@ -65,9 +65,20 @@
   transform: scale(0.95);
 }
 
+.broom-video {
+  transform: translateX(calc(100% + 5vw));
+  transition: transform 0.7s ease-in-out;
+}
+
+.broom-video.visible {
+  transform: translateX(0);
+}
+
 .card:hover {
   background-color: #e6ccb2;
   transform: translateY(-10px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
+
+
 

@@ -86,7 +86,7 @@ function SelectItems() {
           ref={videoRef}
           onClick={handleVideoClick}
           onEnded={handleVideoEnd}
-          className="broom-video"
+          className={`broom-video ${selectedItems.length > 0 ? "visible" : ""}`}
           muted
           playsInline
         >
