@@ -1,5 +1,4 @@
-/** import emojis, { proteins, vegetables, grains, dairy } from "../emojis"; **/
-import "./showItems.css";
+import "./ShowIngredient.css";
 const { proteins, vegetables, grains, dairy, emojis } = require("../emojis");
 
 const categoriesMap = {
@@ -9,7 +8,7 @@ const categoriesMap = {
   dairy: Object.keys(dairy),
 };
 
-function ShowItems(props) {
+function ShowIngredient(props) {
   const items = categoriesMap[props.name] || [];
 
   return (
@@ -32,4 +31,4 @@ function ShowItems(props) {
   );
 }
 
-export default ShowItems;
+export default ShowIngredient;

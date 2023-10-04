@@ -1,5 +1,5 @@
 import React from "react";
-import "./recipeCard.css";
+import "./RecipeCard.css";
 
 const { proteins, vegetables, grains, dairy } = require('../emojis');
 

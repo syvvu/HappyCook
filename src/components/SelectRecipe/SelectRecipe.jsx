@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import RecipesContainer from "../recipesContainer/RecipesContainer";
-import "./selectTab.css";
+import ShowRecipe from "../ShowRecipe/ShowRecipe";
+import "./SelectRecipe.css";
 
-function SelectTab() {
+function SelectRecipe() {
   const navigate = useNavigate();
   const location = useLocation();
   const exactMatches = location.state?.exactMatches || [];
@@ -59,7 +59,7 @@ function SelectTab() {
         </span>
       </div>
       <div className="content">
-        <RecipesContainer
+        <ShowRecipe
           recipes={displayedContent === "exact" ? exactMatches : closeMatches}
           selectedItems={selectedItems}
         />
@@ -68,4 +68,4 @@ function SelectTab() {
   );
 }
 
-export default SelectTab;
+export default SelectRecipe;

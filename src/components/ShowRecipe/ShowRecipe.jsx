@@ -1,10 +1,10 @@
 import React from "react";
-import RecipeCard from "../recipeCard/RecipeCard";
+import RecipeCard from "../RecipeCard/RecipeCard";
 import Button from "../Button/Button";
-import "./recipesContainer.css";
+import "./ShowRecipe.css";
 import { useNavigate } from "react-router-dom";
 
-function RecipesContainer({ recipes, selectedItems }) {
+function ShowRecipe({ recipes, selectedItems }) {
   const navigate = useNavigate();
 
   const noMatchMessages = [
@@ -53,4 +53,4 @@ function RecipesContainer({ recipes, selectedItems }) {
   );
 }
 
-export default RecipesContainer;
+export default ShowRecipe;

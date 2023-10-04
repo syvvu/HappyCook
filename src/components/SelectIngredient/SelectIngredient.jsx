@@ -1,9 +1,9 @@
 import React, { useState, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import ShowItems from "../showItems/ShowItems";
+import ShowIngredient from "../ShowIngredient/ShowIngredient";
 import Button from "../Button/Button";
 import LoadingPage from "../LoadingPage/LoadingPage";
-import "./selectItems.css";
+import "./SelectIngredient.css";
 
 const categories = [
   { name: "protein", label: "Protein" },
@@ -12,7 +12,7 @@ const categories = [
   { name: "dairy", label: "Dairy" },
 ];
 
-function SelectItems() {
+function SelectIngredient() {
   const location = useLocation();
   const initialSelectedItems = location.state?.selectedItems || [];
 
@@ -113,7 +113,7 @@ function SelectItems() {
             {categories.map((category) => (
               <div className="card" key={category.name}>
                 <h2>{category.label}</h2>
-                <ShowItems
+                <ShowIngredient
                   name={category.name}
                   selectedItems={selectedItems}
                   onSelectItems={handleItemSelect}
@@ -128,4 +128,4 @@ function SelectItems() {
   );
 }
 
-export default SelectItems;
+export default SelectIngredient;
