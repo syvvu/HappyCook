@@ -48,7 +48,7 @@ function SelectIngredient() {
   };
 
   const getRecipes = async (selectedItems) => {
-    const response = await fetch("http://localhost:5001/find-recipes", {
+    const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/find-recipes`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
