@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import ShowItems from "../showItems/ShowItems";
 import Button from "../Button/Button";
-import EmojiWalking from "../EmojiWalking/EmojiWalking";
+import LoadingPage from "../LoadingPage/LoadingPage";
 import "./selectItems.css";
 
 const categories = [
@@ -75,20 +75,22 @@ function SelectItems() {
 
   const handleSubmit = async () => {
     setIsLoading(true);
-    try {
-      const data = await getRecipes(selectedItems);
-      navigateToRecipes(data, selectedItems);
-    } catch (error) {
-      console.error("Failed to get recipes:", error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
+    setTimeout(async () => {
+      try {
+          const data = await getRecipes(selectedItems);
+          navigateToRecipes(data, selectedItems);
+      } catch (error) {
+          console.error("Failed to get recipes:", error);
+      } finally {
+          setIsLoading(false);
+      }
+  }, 4000);
+};
 
   return (
     <div className="main" style={{ backgroundColor: "#7f5539" }}>
       {isLoading ? (
-        <EmojiWalking />
+        <LoadingPage />
       ) : (
         <>
           <div className="header-container">
