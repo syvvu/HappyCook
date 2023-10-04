@@ -8,6 +8,10 @@ const PORT = 5001;
 app.use(cors());
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.send("Server is running.");
+});
+
 app.post("/find-recipes", async (req, res) => {
   try {
     const selectedIngredients = req.body.selectedIngredients;
