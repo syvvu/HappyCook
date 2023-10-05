@@ -1,8 +1,9 @@
-require("dotenv").config();
-const express = require("express");
-const cors = require("cors");
-const mongoose = require("mongoose");
-const findRecipes = require("./findRecipes");
+import dotenv from 'dotenv';
+dotenv.config();
+import express from 'express';
+import cors from 'cors';
+import mongoose from 'mongoose';
+import findRecipes from './findRecipes.js';
 
 const app = express();
 const PORT = process.env.PORT || 5001;

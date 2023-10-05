@@ -1,5 +1,6 @@
-require("dotenv").config();
-const fetch = require('node-fetch');
+import dotenv from 'dotenv';
+dotenv.config();
+import fetch from 'node-fetch';
 
 async function fetchRecipes() {
     const spreadsheetId = '1iw8HKhA74hILb2zkM5_bsPqOYA2AepXdbc-HH4CHjm8'; 
@@ -22,4 +23,4 @@ async function fetchRecipes() {
     }));
 }
 
-module.exports = fetchRecipes;
+export default fetchRecipes;

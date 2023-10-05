@@ -1,5 +1,5 @@
+import fetchRecipes from "../server/fetchRecipes";
 import emojis from "../src/components/emojis";
-const fetchRecipes = require('../server/fetchRecipes'); 
 
 describe("Check Ingredients against Emojis", () => {
   

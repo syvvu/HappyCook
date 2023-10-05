@@ -1,4 +1,4 @@
-const Recipe = require("./recipeModel");
+import Recipe from "./recipeModel.js";
 
 async function findRecipes(selectedIngredients) {
     try {
@@ -23,4 +23,4 @@ async function findRecipes(selectedIngredients) {
     }
 }
 
-module.exports = findRecipes;
+export default findRecipes;

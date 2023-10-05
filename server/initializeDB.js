@@ -1,7 +1,8 @@
-require("dotenv").config();
-const mongoose = require("mongoose");
-const Recipe = require("./recipeModel");
-const fetchRecipes = require("./fetchRecipes");
+import dotenv from 'dotenv';
+dotenv.config();
+import mongoose from 'mongoose';
+import Recipe from './recipeModel.js';
+import fetchRecipes from './fetchRecipes.js';
 
 const connectionString = `mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@recipedbcluster.grv4wcj.mongodb.net/recipeDB?retryWrites=true&w=majority`;
 
