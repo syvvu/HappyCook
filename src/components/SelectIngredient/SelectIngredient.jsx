@@ -84,7 +84,7 @@ function SelectIngredient() {
       } finally {
           setIsLoading(false);
       }
-  }, 4000);
+  }, 3900);
 };
 
   return (

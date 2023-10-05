@@ -28,9 +28,16 @@ function LoadingPage() {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
+    let timeouts = [];
+
     changeMessage();
-    const interval = setInterval(changeMessage, 2000);
-    return () => clearInterval(interval);
+
+    timeouts.push(setTimeout(changeMessage, 1300));
+    timeouts.push(setTimeout(changeMessage, 2600));
+
+    return () => {
+      timeouts.forEach(clearTimeout);
+    };
   }, []);
 
   const changeMessage = () => {
