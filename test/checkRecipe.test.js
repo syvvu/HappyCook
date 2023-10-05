@@ -1,6 +1,5 @@
+import emojis from "../src/components/emojis";
 const fetchRecipes = require('../server/fetchRecipes'); 
-//const { emojis } = require('../src/components/emojis');
-import { emojis } from "../src/components/emojis";
 
 describe("Check Ingredients against Emojis", () => {
   
