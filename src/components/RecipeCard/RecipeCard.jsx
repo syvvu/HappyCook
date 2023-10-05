@@ -1,7 +1,6 @@
 import React from "react";
+import { proteins, vegetables, grains, dairy } from "../emojis";
 import "./RecipeCard.css";
-
-const { proteins, vegetables, grains, dairy } = require('../emojis');
 
 function RecipeCard({ name, ingredients, link, selectedItems }) {
   const categoryOrder = [proteins, vegetables, grains, dairy];

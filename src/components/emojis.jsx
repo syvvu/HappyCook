@@ -53,10 +53,5 @@ const emojis = {
   ...dairy,
 };
 
-module.exports = {
-  proteins,
-  vegetables,
-  grains,
-  dairy,
-  emojis
-};
+export { proteins, vegetables, grains, dairy};
+export default emojis;
