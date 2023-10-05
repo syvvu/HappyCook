@@ -53,7 +53,6 @@ function SelectRecipe() {
         <span
           className="material-symbols-outlined"
           onClick={navigateToKitchen}
-          style={{ cursor: "pointer" }}
         >
           kitchen
         </span>
