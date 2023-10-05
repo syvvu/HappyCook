@@ -7,9 +7,9 @@ function App() {
   return (
     <Router>
       <Routes>
+        <Route path="/" element={<SelectIngredient />} />
         <Route path="/ingredients" element={<SelectIngredient />} />
         <Route path="/recipes" element={<SelectRecipe />} />
-        <Route path="/" element={<SelectIngredient />} />
       </Routes>
     </Router>
   );
