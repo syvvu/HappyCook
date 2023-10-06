@@ -1,6 +1,6 @@
 # Happy Cook 🥘
 
-Hello there! I'm a UCSD Computer Science student, wrapping up my journey and set to graduate in June 2024. Over the summer, I dove into a comprehensive Udemy course - "Become a Full-Stack Web Developer with just ONE course", and "Happy Cook" is the delightful outcome!
+Hello:) I'm a UCSD Computer Science student, wrapping up my journey and set to graduate in June 2024. Over the summer, I dove into a comprehensive Udemy course - "Become a Full-Stack Web Developer with just ONE course", and "Happy Cook" is the delightful outcome!
 
 ## About the Project 📖
 
