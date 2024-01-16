@@ -16,7 +16,7 @@ Have you ever been in that situation where you stare into your pantry or fridge 
 
 This is a full-stack project, and I've used a range of technologies:
 - Frontend: React (hosted on [Vercel](https://happycook.vercel.app/))
-- Backend: Node.js, with data stored in MongoDB (hosted on [Heroku](https://happycook-5197df735e63.herokuapp.com/))
+- Backend: Node.js, with data stored in MongoDB (hosted on Heroku)
 
 I manually gathered recipe data and stored it in a Google Sheet. To integrate this data into the app, I used an API key to pull the information and subsequently stored it in MongoDB.
 
