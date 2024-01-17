@@ -19,16 +19,3 @@ This is a full-stack project, and I've used a range of technologies:
 - Backend: Node.js, with data stored in MongoDB (hosted on Heroku)
 
 I manually gathered recipe data and stored it in a Google Sheet. To integrate this data into the app, I used an API key to pull the information and subsequently stored it in MongoDB.
-
-### Try It Out 🚀
-
-If you'd like to run it locally:
-
-1. Clone the repo.
-2. Run `npm install` to install the necessary packages.
-3. Finally, `npm start` will get the frontend up and running.
-
-## A Bit About Me 🎓
-
-I'm diving into the world of software engineering, and every bit of feedback or advice can help me grow. If you've got suggestions for Happy Cook or want to chat about coding, web development, or even the best pasta recipes, reach out!
-- Email: sswu@ucsd.edu
